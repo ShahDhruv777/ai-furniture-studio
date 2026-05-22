@@ -17,7 +17,7 @@ export async function uploadImageToCloudinary(
     return null;
   }
 
-  const folder = options.folder ?? "ai-furniture-studio/customizations";
+  const folder = options.folder ?? "samples/Catalog";
   const timestamp = Math.floor(Date.now() / 1000).toString();
 
   // Build signature: sha1 of sorted "key=value" pairs (excluding file, api_key)
