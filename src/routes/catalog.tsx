@@ -30,7 +30,7 @@ function CatalogPage() {
   const [category, setCategory] = useState<string>("All");
   const [room, setRoom] = useState<string>("All");
   const [sort, setSort] = useState<string>("featured");
-  const [maxPrice, setMaxPrice] = useState<number>(2000);
+  // price filter removed
 
   const categories = useMemo(() => ["All", ...Array.from(new Set((data ?? []).map((p) => p.category)))], [data]);
   const rooms = useMemo(() => ["All", ...Array.from(new Set((data ?? []).map((p) => p.room)))], [data]);
