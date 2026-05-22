@@ -145,9 +145,8 @@ function ProductPage() {
                   <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-card">
                     <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition group-hover:scale-105" />
                   </div>
-                  <div className="mt-3 flex justify-between text-sm">
+                  <div className="mt-3 text-sm">
                     <span>{p.name}</span>
-                    <span>${p.price.toLocaleString()}</span>
                   </div>
                 </Link>
               ))}
