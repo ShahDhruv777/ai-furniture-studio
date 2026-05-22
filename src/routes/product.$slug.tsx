@@ -100,10 +100,6 @@ function ProductPage() {
               <span className={product.in_stock ? "text-primary" : "text-destructive"}>{product.in_stock ? "In stock" : "Out of stock"}</span>
             </div>
             <p className="mt-6 text-lg text-muted-foreground">{product.description}</p>
-            <div className="mt-8 flex items-end gap-6">
-              <div className="text-3xl font-display">${product.price.toLocaleString()}</div>
-              <div className="text-sm text-muted-foreground">or 4× ${Math.round(product.price / 4)} interest-free</div>
-            </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <button
