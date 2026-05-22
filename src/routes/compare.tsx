@@ -44,7 +44,6 @@ function ComparePage() {
   const items = slots.map((id) => (id ? products?.find((p) => p.id === id) : undefined));
 
   const rows: { label: string; get: (p: Product) => string }[] = [
-    { label: "Price", get: (p) => `$${p.price.toLocaleString()}` },
     { label: "Category", get: (p) => p.category },
     { label: "Material", get: (p) => p.material },
     { label: "Color", get: (p) => p.color },
