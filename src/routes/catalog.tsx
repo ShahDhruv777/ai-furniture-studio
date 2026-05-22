@@ -97,10 +97,7 @@ function CatalogPage() {
                       <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
                     </div>
                     <div className="mt-4">
-                      <div className="flex items-start justify-between">
-                        <div className="font-medium">{p.name}</div>
-                        <div className="text-sm">${p.price.toLocaleString()}</div>
-                      </div>
+                      <div className="font-medium">{p.name}</div>
                       <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
                         <span>{p.material}</span>
                         <span>•</span>
