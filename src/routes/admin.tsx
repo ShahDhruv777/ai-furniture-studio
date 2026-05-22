@@ -53,7 +53,6 @@ function AdminPage() {
                   <th className="px-5 py-3 text-left">Name</th>
                   <th className="px-5 py-3 text-left">Category</th>
                   <th className="px-5 py-3 text-left">Material</th>
-                  <th className="px-5 py-3 text-right">Price</th>
                   <th className="px-5 py-3 text-left">Stock</th>
                 </tr>
               </thead>
