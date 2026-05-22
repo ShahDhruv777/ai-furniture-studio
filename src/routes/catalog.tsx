@@ -72,16 +72,9 @@ function CatalogPage() {
             <FilterGroup label="Category" options={categories} value={category} onChange={setCategory} />
             <FilterGroup label="Room" options={rooms} value={room} onChange={setRoom} />
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Max price</div>
-              <input type="range" min={400} max={2000} step={50} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-3 w-full accent-[color:var(--primary)]" />
-              <div className="mt-1 text-sm">Up to ${maxPrice.toLocaleString()}</div>
-            </div>
-            <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Sort</div>
               <select value={sort} onChange={(e) => setSort(e.target.value)} className="mt-3 w-full rounded-md border border-border bg-background px-3 py-2 text-sm">
                 <option value="featured">Featured</option>
-                <option value="price-asc">Price: low to high</option>
-                <option value="price-desc">Price: high to low</option>
                 <option value="rating">Top rated</option>
               </select>
             </div>
