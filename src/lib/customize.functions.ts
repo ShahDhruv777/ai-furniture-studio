@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { uploadImageToCloudinary } from "./cloudinary.server";
 
 const CustomizeInput = z.object({
   productName: z.string().min(1).max(200),
