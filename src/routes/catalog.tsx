@@ -39,14 +39,11 @@ function CatalogPage() {
     let r = (data ?? []).filter((p) =>
       (category === "All" || p.category === category) &&
       (room === "All" || p.room === room) &&
-      p.price <= maxPrice &&
       (q === "" || `${p.name} ${p.material} ${p.style}`.toLowerCase().includes(q.toLowerCase()))
     );
-    if (sort === "price-asc") r = [...r].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc") r = [...r].sort((a, b) => b.price - a.price);
     if (sort === "rating") r = [...r].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
     return r;
-  }, [data, q, category, room, sort, maxPrice]);
+  }, [data, q, category, room, sort]);
 
   return (
     <Layout>
