@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { uploadImageToCloudinary } from "./cloudinary.server";
 
 const CustomizeInput = z.object({
   productName: z.string().min(1).max(200),
@@ -80,7 +81,11 @@ export const customizeFurniture = createServerFn({ method: "POST" })
         return { ok: false as const, error: "No image returned by the model." };
       }
 
-      return { ok: true as const, imageUrl };
+      // Upload to Cloudinary so we store a small URL instead of a multi-MB data URL.
+      const uploaded = await uploadImageToCloudinary(imageUrl);
+      const finalUrl = uploaded?.secureUrl ?? imageUrl;
+
+      return { ok: true as const, imageUrl: finalUrl };
     } catch (e) {
       console.error("Customize failed", e);
       return { ok: false as const, error: "Generation request failed. Please try again." };
