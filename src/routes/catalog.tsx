@@ -30,7 +30,7 @@ function CatalogPage() {
   const [category, setCategory] = useState<string>("All");
   const [room, setRoom] = useState<string>("All");
   const [sort, setSort] = useState<string>("featured");
-  const [maxPrice, setMaxPrice] = useState<number>(2000);
+  // price filter removed
 
   const categories = useMemo(() => ["All", ...Array.from(new Set((data ?? []).map((p) => p.category)))], [data]);
   const rooms = useMemo(() => ["All", ...Array.from(new Set((data ?? []).map((p) => p.room)))], [data]);
@@ -39,14 +39,11 @@ function CatalogPage() {
     let r = (data ?? []).filter((p) =>
       (category === "All" || p.category === category) &&
       (room === "All" || p.room === room) &&
-      p.price <= maxPrice &&
       (q === "" || `${p.name} ${p.material} ${p.style}`.toLowerCase().includes(q.toLowerCase()))
     );
-    if (sort === "price-asc") r = [...r].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc") r = [...r].sort((a, b) => b.price - a.price);
     if (sort === "rating") r = [...r].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
     return r;
-  }, [data, q, category, room, sort, maxPrice]);
+  }, [data, q, category, room, sort]);
 
   return (
     <Layout>
@@ -75,16 +72,9 @@ function CatalogPage() {
             <FilterGroup label="Category" options={categories} value={category} onChange={setCategory} />
             <FilterGroup label="Room" options={rooms} value={room} onChange={setRoom} />
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Max price</div>
-              <input type="range" min={400} max={2000} step={50} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-3 w-full accent-[color:var(--primary)]" />
-              <div className="mt-1 text-sm">Up to ${maxPrice.toLocaleString()}</div>
-            </div>
-            <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Sort</div>
               <select value={sort} onChange={(e) => setSort(e.target.value)} className="mt-3 w-full rounded-md border border-border bg-background px-3 py-2 text-sm">
                 <option value="featured">Featured</option>
-                <option value="price-asc">Price: low to high</option>
-                <option value="price-desc">Price: high to low</option>
                 <option value="rating">Top rated</option>
               </select>
             </div>
@@ -107,10 +97,7 @@ function CatalogPage() {
                       <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
                     </div>
                     <div className="mt-4">
-                      <div className="flex items-start justify-between">
-                        <div className="font-medium">{p.name}</div>
-                        <div className="text-sm">${p.price.toLocaleString()}</div>
-                      </div>
+                      <div className="font-medium">{p.name}</div>
                       <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
                         <span>{p.material}</span>
                         <span>•</span>

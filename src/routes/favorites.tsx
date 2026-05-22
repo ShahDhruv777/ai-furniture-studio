@@ -56,9 +56,8 @@ function FavoritesPage() {
                   <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition group-hover:scale-105" />
                 </Link>
                 <div className="p-4">
-                  <div className="flex justify-between text-sm">
+                  <div className="text-sm">
                     <span className="font-medium">{p.name}</span>
-                    <span>${p.price.toLocaleString()}</span>
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground">{p.material}</div>
                   <div className="mt-4 flex gap-2">

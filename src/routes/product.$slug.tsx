@@ -100,10 +100,6 @@ function ProductPage() {
               <span className={product.in_stock ? "text-primary" : "text-destructive"}>{product.in_stock ? "In stock" : "Out of stock"}</span>
             </div>
             <p className="mt-6 text-lg text-muted-foreground">{product.description}</p>
-            <div className="mt-8 flex items-end gap-6">
-              <div className="text-3xl font-display">${product.price.toLocaleString()}</div>
-              <div className="text-sm text-muted-foreground">or 4× ${Math.round(product.price / 4)} interest-free</div>
-            </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <button
@@ -149,9 +145,8 @@ function ProductPage() {
                   <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-card">
                     <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition group-hover:scale-105" />
                   </div>
-                  <div className="mt-3 flex justify-between text-sm">
+                  <div className="mt-3 text-sm">
                     <span>{p.name}</span>
-                    <span>${p.price.toLocaleString()}</span>
                   </div>
                 </Link>
               ))}

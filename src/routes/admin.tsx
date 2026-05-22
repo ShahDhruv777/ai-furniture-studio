@@ -53,7 +53,6 @@ function AdminPage() {
                   <th className="px-5 py-3 text-left">Name</th>
                   <th className="px-5 py-3 text-left">Category</th>
                   <th className="px-5 py-3 text-left">Material</th>
-                  <th className="px-5 py-3 text-right">Price</th>
                   <th className="px-5 py-3 text-left">Stock</th>
                 </tr>
               </thead>
@@ -68,7 +67,6 @@ function AdminPage() {
                     </td>
                     <td className="px-5 py-3">{p.category}</td>
                     <td className="px-5 py-3">{p.material}</td>
-                    <td className="px-5 py-3 text-right">${p.price.toLocaleString()}</td>
                     <td className="px-5 py-3"><span className={`inline-flex items-center gap-1 text-xs ${p.in_stock ? "text-primary" : "text-destructive"}`}><CheckCircle2 className="h-3 w-3" /> {p.in_stock ? "In stock" : "Out"}</span></td>
                   </tr>
                 ))}

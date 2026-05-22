@@ -87,12 +87,9 @@ function Home() {
                 <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-card">
                   <img src={p.image_url} alt={p.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                 </div>
-                <div className="mt-4 flex items-start justify-between">
-                  <div>
-                    <div className="font-medium">{p.name}</div>
-                    <div className="text-sm text-muted-foreground">{p.material}</div>
-                  </div>
-                  <div className="text-sm">${p.price.toLocaleString()}</div>
+                <div className="mt-4">
+                  <div className="font-medium">{p.name}</div>
+                  <div className="text-sm text-muted-foreground">{p.material}</div>
                 </div>
               </Link>
             ) : (
